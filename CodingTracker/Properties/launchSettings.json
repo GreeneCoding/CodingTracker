@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CodingTracker": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\green\\source\\repos\\CodingTracker\\CodingTracker\\CodingTracker.csproj"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace CodingTracker
 {
     internal class DatabaseAndTables
     {
-       static string connectionstring = ConfigurationManager.AppSettings.Get("database");
+        static string connectionstring = ConfigurationManager.AppSettings.Get("database");
 
        internal static void CreateDatabase()
         {
@@ -20,7 +21,7 @@ namespace CodingTracker
                 { 
                     connection.Open();
                     tableCmd.CommandText =
-                        @"CREATE TABLE IF NOT EXISTS CodingTracker (Id INTEGER PRIMARY KEY AUTOINCREMENT, StartTime TEXT, EndTime TEXT, Duration STRING)";
+                        @"CREATE TABLE IF NOT EXISTS CodingTracker (Id INTEGER PRIMARY KEY AUTOINCREMENT, StartTime TEXT, EndTime TEXT, Duration TEXT)";
                     tableCmd.ExecuteNonQuery();
                 }
             }

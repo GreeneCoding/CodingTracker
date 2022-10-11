@@ -11,7 +11,7 @@ namespace CodingTracker
     internal class CRUDController
     {
         static string connectionstring = ConfigurationManager.AppSettings.Get("database");
-        void AddCodingEntry()
+       internal void AddCodingEntry()
         {
             using (var connection = new SqliteConnection(connectionstring))
             {
@@ -19,7 +19,50 @@ namespace CodingTracker
                 {
                     connection.Open();
                     tableCmd.CommandText =
-                        @"INSERT INTO CodingTracker (Id INTEGER PRIMARY KEY AUTOINCREMENT, StartTime TEXT, EndTime TEXT, Duration STRING)";
+                        @"INSERT INTO CodingTracker (StartTime, EndTime, Duration) VALUES (@StartTime, @EndTime, @Duration)";
+                    tableCmd.Parameters.AddWithValue("@StartTime", starttime);
+                    tableCmd.Parameters.AddWithValue("@EndTime", endtime);
+                    tableCmd.Parameters.AddWithValue("@Duration", duration);
+                    tableCmd.ExecuteNonQuery();
+                }
+            }
+        }
+        internal void GetCodingEntries() 
+        {
+            using (var connection = new SqliteConnection(connectionstring))
+            {
+                using (var tableCmd = connection.CreateCommand())
+                {
+                    connection.Open();
+                    tableCmd.CommandText = @"SELECT * FROM CodingTracker";
+                    tableCmd.ExecuteNonQuery();
+                }
+            }
+        }
+        internal void UpdateCodingEntry()
+        {
+            using (var connection = new SqliteConnection(connectionstring))
+            {
+                using (var tableCmd = connection.CreateCommand()) 
+                {
+                    connection.Open();
+                    tableCmd.CommandText = @"UPDATE CodingTracker SET StartTime = @StartTime , EndTime = @EndTime , Duration = WHERE Id = @Id";
+                    tableCmd.Parameters.AddWithValue("@StartTime", starttime);
+                    tableCmd.Parameters.AddWithValue("@EndTime", endtime);
+                    tableCmd.Parameters.AddWithValue("@Duration", duration);
+                    tableCmd.Parameters.AddWithValue("@Id", id);
+                }
+            }
+        }
+        internal void DeleteCodingEntry()
+        {
+            using (var connection = new SqliteConnection(connectionstring))
+            {
+                using (var tableCmd = connection.CreateCommand())
+                {
+                    connection.Open();
+                    tableCmd.CommandText = @"DELETE FROM CodingTracker WHERE Id = @Id";
+                    tableCmd.Parameters.AddWithValue("@Id", id);
                     tableCmd.ExecuteNonQuery();
                 }
             }

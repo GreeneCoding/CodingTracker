@@ -11,6 +11,6 @@ namespace CodingTracker
         int Id { get; set; }
         DateTime StartTime { get; set; }
         DateTime EndTime { get; set; }
-        String ?Duration { get; set; }
+        String? Duration { get; set; }
     }
 }

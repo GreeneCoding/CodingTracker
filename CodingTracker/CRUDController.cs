@@ -11,7 +11,7 @@ namespace CodingTracker
     internal class CRUDController
     {
         static string connectionstring = ConfigurationManager.AppSettings.Get("database");
-       internal void AddCodingEntry()
+       internal static void AddCodingEntry()
         {
             using (var connection = new SqliteConnection(connectionstring))
             {
@@ -27,7 +27,7 @@ namespace CodingTracker
                 }
             }
         }
-        internal void GetCodingEntries() 
+        internal static void GetCodingEntries() 
         {
             using (var connection = new SqliteConnection(connectionstring))
             {
@@ -39,7 +39,7 @@ namespace CodingTracker
                 }
             }
         }
-        internal void UpdateCodingEntry()
+        internal static void UpdateCodingEntry()
         {
             using (var connection = new SqliteConnection(connectionstring))
             {
@@ -54,7 +54,7 @@ namespace CodingTracker
                 }
             }
         }
-        internal void DeleteCodingEntry()
+        internal static void DeleteCodingEntry()
         {
             using (var connection = new SqliteConnection(connectionstring))
             {

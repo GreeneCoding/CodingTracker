@@ -8,7 +8,7 @@ namespace CodingTracker
 {
     internal class UserMenu
     {
-        internal void ShowUserMenu()
+        internal static void ShowUserMenu()
         {
             Console.Clear();
             bool closeApp = false;
@@ -24,9 +24,29 @@ namespace CodingTracker
                 var commandinput = Console.ReadLine();
                 switch (commandinput)
                 {
+                    case "0":
+                        Console.WriteLine(@"Thank you for using the Coding Tracker App, Goodbye!");
+                        closeApp = true;
+                        break;   
                     case "1":
                         Console.Clear();
                         CRUDController.AddCodingEntry();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        CRUDController.GetCodingEntries();
+                        break;
+                    case "3":
+                        Console.Clear();
+                        CRUDController.UpdateCodingEntry();
+                        break;
+                    case "4":
+                        Console.Clear();
+                        CRUDController.DeleteCodingEntry();
+                        break;
+                    default:
+                        Console.WriteLine(@"Invalid input, please enter a value from 0-4");
+                        break;
                 }
             }
             

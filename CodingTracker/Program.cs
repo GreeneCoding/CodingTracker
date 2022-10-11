@@ -1,2 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-CodingTracker.UserMenu.ShowUserMenu();
+﻿using CodingTracker;
+
+UserMenu.ShowUserMenu();

@@ -10,7 +10,7 @@ namespace CodingTracker
     {
         internal static int GetCodingEntryId()
         {
-            Console.WriteLine(@"Please enter the Id of the record in the table below);
+            Console.WriteLine(@"Please enter the Id of the record in the table below");
         }
         internal static string GetStartTime()
         {

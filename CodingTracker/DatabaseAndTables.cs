@@ -11,11 +11,10 @@ namespace CodingTracker
 {
     internal class DatabaseAndTables
     {
-        static string connectionstring = ConfigurationManager.AppSettings.Get("database");
-
        internal static void CreateDatabase()
         {
-            using (var connection = new SqliteConnection(connectionstring))
+            string connectionString = ConfigurationManager.AppSettings.Get("database");
+            using (var connection = new SqliteConnection(connectionString))
             {
                 using (var tableCmd = connection.CreateCommand())
                 { 

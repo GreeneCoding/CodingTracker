@@ -10,10 +10,13 @@ namespace CodingTracker
 {
     internal class CRUDController
     {
-        static string connectionstring = ConfigurationManager.AppSettings.Get("database");
-       internal static void AddCodingEntry()
+        static string connectionString = ConfigurationManager.AppSettings.Get("database"); 
+        internal static void AddCodingEntry()
         {
-            using (var connection = new SqliteConnection(connectionstring))
+            string starttime = UserInput.GetStartTime();
+            string endtime = UserInput.GetEndTime();
+            string duration = UserInput.GetDuration(starttime,endtime);
+            using (var connection = new SqliteConnection(connectionString))
             {
                 using (var tableCmd = connection.CreateCommand())
                 {
@@ -29,7 +32,7 @@ namespace CodingTracker
         }
         internal static void GetCodingEntries() 
         {
-            using (var connection = new SqliteConnection(connectionstring))
+            using (var connection = new SqliteConnection(connectionString))
             {
                 using (var tableCmd = connection.CreateCommand())
                 {
@@ -41,7 +44,11 @@ namespace CodingTracker
         }
         internal static void UpdateCodingEntry()
         {
-            using (var connection = new SqliteConnection(connectionstring))
+            string starttime = UserInput.GetStartTime();
+            string endtime = UserInput.GetEndTime();
+            string duration = UserInput.GetDuration(starttime,endtime);
+            int id = UserInput.GetCodingEntryId();
+            using (var connection = new SqliteConnection(connectionString))
             {
                 using (var tableCmd = connection.CreateCommand()) 
                 {
@@ -56,7 +63,8 @@ namespace CodingTracker
         }
         internal static void DeleteCodingEntry()
         {
-            using (var connection = new SqliteConnection(connectionstring))
+            int id = UserInput.GetCodingEntryId();
+            using (var connection = new SqliteConnection(connectionString))
             {
                 using (var tableCmd = connection.CreateCommand())
                 {

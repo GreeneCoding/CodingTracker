@@ -31,7 +31,7 @@ namespace CodingTracker
         {
             //var starttime = Convert.ToDateTime(GetStartTime());
             //var endtime = Convert.ToDateTime(GetEndTime());
-            var duration = Convert.ToDateTime(starttime) - Convert.ToDateTime(endtime);
+            var duration = Convert.ToDateTime(endtime) - Convert.ToDateTime(starttime);
             return duration.ToString();
         }
     }

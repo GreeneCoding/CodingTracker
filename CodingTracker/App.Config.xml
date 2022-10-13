@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <configuration>
 	<appSettings>
-		<add key="database" value="Data Source=coding_tracker.db" />
+		<add key="database" value="Data Source=C:\Users\green\source\repos\CodingTracker\CodingTracker\coding_tracker.db" />
 	</appSettings>
+	<connectionStrings>
+		<add name ="database"
+			 connectionString ="Data Source=C:\Users\green\source\repos\CodingTracker\CodingTracker\coding_tracker.db"
+			 providerName="Microsoft.Data.Sqlite"/>
+	</connectionStrings>
 </configuration>

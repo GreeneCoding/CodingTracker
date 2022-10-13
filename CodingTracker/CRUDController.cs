@@ -10,7 +10,7 @@ namespace CodingTracker
 {
     internal class CRUDController
     {
-        static string connectionString = ConfigurationManager.AppSettings.Get("database"); 
+        static string? connectionString = ConfigurationManager.AppSettings.Get("database"); 
         internal static void AddCodingEntry()
         {
             string starttime = UserInput.GetStartTime();

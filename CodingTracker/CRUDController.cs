@@ -68,20 +68,21 @@ namespace CodingTracker
         }
         internal static void UpdateCodingEntry()
         {
+            int id = UserInput.GetCodingEntryId();
             string starttime = UserInput.GetStartTime();
             string endtime = UserInput.GetEndTime();
             string duration = UserInput.GetDuration(starttime,endtime);
-            int id = UserInput.GetCodingEntryId();
             using (var connection = new SqliteConnection(connectionString))
             {
                 using (var tableCmd = connection.CreateCommand()) 
                 {
                     connection.Open();
-                    tableCmd.CommandText = @"UPDATE CodingTracker SET StartTime = @StartTime , EndTime = @EndTime , Duration = WHERE Id = @Id";
+                    tableCmd.CommandText = @"UPDATE CodingTracker SET StartTime = @StartTime , EndTime = @EndTime , Duration = @Duration WHERE Id = @Id";
                     tableCmd.Parameters.AddWithValue("@StartTime", starttime);
                     tableCmd.Parameters.AddWithValue("@EndTime", endtime);
                     tableCmd.Parameters.AddWithValue("@Duration", duration);
                     tableCmd.Parameters.AddWithValue("@Id", id);
+                    tableCmd.ExecuteNonQuery();
                 }
             }
         }

@@ -11,6 +11,7 @@ namespace CodingTracker
         internal static int GetCodingEntryId()
         {
             Console.WriteLine(@"Please enter the Id of the record in the table below");
+            CRUDController.GetCodingEntries();
             int id = Convert.ToInt32(Console.ReadLine());
             return id;
         }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CodingTracker
 {
-    internal class CodingSession
+    public class CodingSession
     {
-        int Id { get; set; }
-        DateTime StartTime { get; set; }
-        DateTime EndTime { get; set; }
-        String? Duration { get; set; }
+        public int Id { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public String? Duration { get; set; }
     }
 }

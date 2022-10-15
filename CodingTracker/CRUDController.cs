@@ -39,6 +39,30 @@ namespace CodingTracker
                     connection.Open();
                     tableCmd.CommandText = @"SELECT * FROM CodingTracker";
                     tableCmd.ExecuteNonQuery();
+                    
+                    List<CodingSession> codingsessionsdata = new();
+                    SqliteDataReader reader = tableCmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            codingsessionsdata.Add(new CodingSession
+                            {
+                                Id = reader.GetInt32(0),
+                                StartTime = reader.GetDateTime(1),
+                                EndTime = reader.GetDateTime(2),
+                                Duration = reader.GetString(3)
+                            }
+
+                                );
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n No rows found.");
+                    }
+                    TableVisualizationEngine.DisplayCodingTracker(codingsessionsdata);
+
                 }
             }
         }

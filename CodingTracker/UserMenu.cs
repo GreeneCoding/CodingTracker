@@ -16,7 +16,7 @@ namespace CodingTracker
             {
                 Console.WriteLine("\nWelcome to the CodingTracker App, please select one of the following options from 0 - 4");
                 Console.WriteLine("\nType 1 to create a new coding entry.");
-                Console.WriteLine("\nType 2 to view all coding Entries.");
+                Console.WriteLine("\nType 2 to view all coding entries.");
                 Console.WriteLine("\nType 3 to update a coding entry.");
                 Console.WriteLine("\nType 4 to delete a coding entry.");
                 Console.WriteLine("\nType 0 to exit the app.");

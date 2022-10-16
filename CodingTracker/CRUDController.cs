@@ -66,9 +66,9 @@ namespace CodingTracker
                 }
             }
         }
-        internal static void UpdateCodingEntry()
+        internal static void UpdateCodingEntry(List<CodingSession> codingsessionsdata)
         {
-            int id = UserInput.GetCodingEntryId();
+            int id = UserInput.GetCodingEntryId(codingsessionsdata);
             string starttime = UserInput.GetStartTime();
             string endtime = UserInput.GetEndTime();
             string duration = UserInput.GetDuration(starttime,endtime);
@@ -86,9 +86,9 @@ namespace CodingTracker
                 }
             }
         }
-        internal static void DeleteCodingEntry()
+        internal static void DeleteCodingEntry(List<CodingSession> codingsessionsdata)
         {
-            int id = UserInput.GetCodingEntryId();
+            int id = UserInput.GetCodingEntryId(codingsessionsdata);
             using (var connection = new SqliteConnection(connectionString))
             {
                 using (var tableCmd = connection.CreateCommand())

@@ -8,17 +8,19 @@ namespace CodingTracker
 {
     internal class UserInput
     {
-        internal static int GetCodingEntryId()
+        internal static int GetCodingEntryId(List<CodingSession> codingsessionsdata)
         {
             Console.WriteLine(@"Please enter the Id of the record in the table below");
             CRUDController.GetCodingEntries();
             int id = Convert.ToInt32(Console.ReadLine());
+            UserValidation.IdValidation(id, codingsessionsdata);
             return id;
         }
         internal static string GetStartTime()
         {
             Console.WriteLine(@"Please enter a date and time in the following format: MM/DD/YYYY 23:59");
             string starttime = Console.ReadLine();
+            UserValidation.StartTimeValidation(starttime);
             return starttime;
         }
 
@@ -26,6 +28,7 @@ namespace CodingTracker
         {
             Console.WriteLine(@"Please enter a date and time in the following format: MM/DD/YYYY 23:59");
             string endtime = Console.ReadLine();
+            UserValidation.EndTimeValidation(endtime);
             return endtime;
         }
         internal static string GetDuration(string starttime, string endtime)

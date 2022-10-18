@@ -38,7 +38,7 @@ namespace CodingTracker
                         break;
                     case "3":
                         Console.Clear();
-                        CRUDController.UpdateCodingEntry(codingsessionsdata);
+                        CRUDController.UpdateCodingEntry();
                         break;
                     case "4":
                         Console.Clear();

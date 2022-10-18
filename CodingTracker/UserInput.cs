@@ -8,12 +8,12 @@ namespace CodingTracker
 {
     internal class UserInput
     {
-        internal static int GetCodingEntryId(List<CodingSession> codingsessionsdata)
+        internal static int GetCodingEntryId()
         {
             Console.WriteLine(@"Please enter the Id of the record in the table below");
             CRUDController.GetCodingEntries();
             int id = Convert.ToInt32(Console.ReadLine());
-            UserValidation.IdValidation(id, codingsessionsdata);
+            UserValidation.IdValidation(id);
             return id;
         }
         internal static string GetStartTime()

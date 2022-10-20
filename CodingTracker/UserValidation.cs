@@ -10,7 +10,7 @@ namespace CodingTracker
 {
     internal class UserValidation
     {
-        internal static int IdValidation(int id)
+        internal static bool IdValidation(int id)
         {
             string? connectionString = ConfigurationManager.AppSettings.Get("database");
             using (var connection = new SqliteConnection(connectionString))
@@ -42,13 +42,8 @@ namespace CodingTracker
                     }
 
                     bool idexists = codingsessionsdata.Exists(x => x.Id == id);
-                    if (id == 0) UserMenu.ShowUserMenu();
-                    while (idexists == false)
-                    {
-                        Console.WriteLine("Invalid id entered, please try again.");
-                        UserInput.GetCodingEntryId();
-                    }
-                    return id;
+                    
+                    return idexists;
                 }
             }
         }

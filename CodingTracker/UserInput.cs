@@ -13,7 +13,13 @@ namespace CodingTracker
             Console.WriteLine(@"Please enter the Id of the record in the table below");
             CRUDController.GetCodingEntries();
             int id = Convert.ToInt32(Console.ReadLine());
-            UserValidation.IdValidation(id);
+            bool idexists = UserValidation.IdValidation(id);
+            if (id == 0) UserMenu.ShowUserMenu();
+            while (idexists == false)
+            {
+                Console.WriteLine("Invalid id entered, please try again.");
+                UserInput.GetCodingEntryId();
+            }
             return id;
         }
         internal static string GetStartTime()

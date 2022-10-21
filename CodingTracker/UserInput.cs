@@ -18,7 +18,8 @@ namespace CodingTracker
             while (idexists == false)
             {
                 Console.WriteLine("Invalid id entered, please try again.");
-                UserInput.GetCodingEntryId();
+                id = Convert.ToInt32(Console.ReadLine());
+                idexists = UserValidation.IdValidation(id);
             }
             return id;
         }

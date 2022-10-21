@@ -21,7 +21,7 @@ namespace CodingTracker
         }
         internal static void ReadProcess()
         {
-            
+            CRUDController.GetCodingEntries();
         }
         internal static void UpdateProcess()
         {

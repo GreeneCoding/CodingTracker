@@ -30,19 +30,19 @@ namespace CodingTracker
                         break;   
                     case "1":
                         Console.Clear();
-                        CRUDController.AddCodingEntry();
+                        CRUDProcesses.AddProcess();
                         break;
                     case "2":
                         Console.Clear();
-                        CRUDController.GetCodingEntries();
+                        CRUDProcesses.ReadProcess();
                         break;
                     case "3":
                         Console.Clear();
-                        CRUDController.UpdateCodingEntry();
+                        CRUDProcesses.UpdateProcess();
                         break;
                     case "4":
                         Console.Clear();
-                        CRUDController.DeleteCodingEntry();
+                        CRUDProcesses.DeleteProcess();
                         break;
                     default:
                         Console.WriteLine(@"Invalid input, please enter a value from 0-4");

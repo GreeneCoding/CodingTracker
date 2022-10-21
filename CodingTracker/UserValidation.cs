@@ -22,13 +22,13 @@ namespace CodingTracker
                     tableCmd.Parameters.AddWithValue("@Id", id);
                     tableCmd.ExecuteNonQuery();
 
-                    List<CodingSession> codingsessionsdata = new();
+                    List<CodingSession> codingSessionsData = new();
                     SqliteDataReader reader = tableCmd.ExecuteReader();
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
-                            codingsessionsdata.Add(new CodingSession
+                            codingSessionsData.Add(new CodingSession
                             {
                                 Id = reader.GetInt32(0)
                             }
@@ -41,20 +41,20 @@ namespace CodingTracker
                         Console.WriteLine("\n No rows found.");
                     }
 
-                    bool idexists = codingsessionsdata.Exists(x => x.Id == id);
+                    bool idExists = codingSessionsData.Exists(x => x.Id == id);
                     
-                    return idexists;
+                    return idExists;
                 }
             }
         }
 
-        internal static string StartTimeValidation(string starttime)
+        internal static string StartTimeValidation(string startTime)
         {
-            return starttime;
+            return startTime;
         }
-        internal static string EndTimeValidation(string endtime)
+        internal static string EndTimeValidation(string endTime)
         {
-            return endtime;
+            return endTime;
         }
 
     }

@@ -21,8 +21,8 @@ namespace CodingTracker
                 Console.WriteLine("\nType 4 to delete a coding entry.");
                 Console.WriteLine("\nType 0 to exit the app.");
 
-                var commandinput = Console.ReadLine();
-                switch (commandinput)
+                var commandInput = Console.ReadLine();
+                switch (commandInput)
                 {
                     case "0":
                         Console.WriteLine(@"Thank you for using the Coding Tracker App, Goodbye!");

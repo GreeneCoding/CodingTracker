@@ -13,22 +13,22 @@ namespace CodingTracker
             Console.WriteLine(@"Please enter the Id of the record in the table below");
             CRUDController.GetCodingEntries();
             int id = Convert.ToInt32(Console.ReadLine());
-            bool idexists = UserValidation.IdValidation(id);
+            bool idExists = UserValidation.IdValidation(id);
             if (id == 0) UserMenu.ShowUserMenu();
-            while (idexists == false)
+            while (idExists == false)
             {
                 Console.WriteLine("Invalid id entered, please try again.");
                 id = Convert.ToInt32(Console.ReadLine());
-                idexists = UserValidation.IdValidation(id);
+                idExists = UserValidation.IdValidation(id);
             }
             return id;
         }
         internal static string GetStartTime()
         {
             Console.WriteLine(@"Please enter a date and time in the following format: MM/DD/YYYY 23:59");
-            string starttime = Console.ReadLine();
-            UserValidation.StartTimeValidation(starttime);
-            return starttime;
+            string startTime = Console.ReadLine();
+            UserValidation.StartTimeValidation(startTime);
+            return startTime;
         }
 
         internal static string GetEndTime()

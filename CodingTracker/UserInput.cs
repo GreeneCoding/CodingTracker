@@ -13,6 +13,7 @@ namespace CodingTracker
             Console.WriteLine(@"Please enter the Id of the record in the table below");
             CRUDController.GetCodingEntries();
             int id = Convert.ToInt32(Console.ReadLine());
+
             bool idExists = UserValidation.IdValidation(id);
             if (id == 0) UserMenu.ShowUserMenu();
             while (idExists == false)
@@ -57,8 +58,6 @@ namespace CodingTracker
         }
         internal static string GetDuration(string starttime, string endtime)
         {
-            //var starttime = Convert.ToDateTime(GetStartTime());
-            //var endtime = Convert.ToDateTime(GetEndTime());
             var duration = Convert.ToDateTime(endtime) - Convert.ToDateTime(starttime);
             return duration.ToString();
         }

@@ -13,10 +13,10 @@ namespace CodingTracker
         static string? connectionString = ConfigurationManager.AppSettings.Get("database");
         internal static void AddProcess()
         {
-            string starttime = UserInput.GetStartTime();
-            string endtime = UserInput.GetEndTime();
-            string duration = UserInput.GetDuration(starttime, endtime);
-            CRUDController.AddCodingEntry(starttime, endtime, duration);
+            string startTime = UserInput.GetStartTime();
+            string endTime = UserInput.GetEndTime();
+            string duration = UserInput.GetDuration(startTime, endTime);
+            CRUDController.AddCodingEntry(startTime, endTime, duration);
             
         }
         internal static void ReadProcess()
@@ -26,10 +26,10 @@ namespace CodingTracker
         internal static void UpdateProcess()
         {
             int id = UserInput.GetCodingEntryId();
-            string starttime = UserInput.GetStartTime();
-            string endtime = UserInput.GetEndTime();
-            string duration = UserInput.GetDuration(starttime, endtime);
-            CRUDController.UpdateCodingEntry(id,starttime,endtime,duration);
+            string startTime = UserInput.GetStartTime();
+            string endTime = UserInput.GetEndTime();
+            string duration = UserInput.GetDuration(startTime, endTime);
+            CRUDController.UpdateCodingEntry(id,startTime,endTime,duration);
         }
         internal static void DeleteProcess()
         {

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,13 +49,16 @@ namespace CodingTracker
             }
         }
 
-        internal static string StartTimeValidation(string startTime)
+        internal static bool StartTimeValidation(string startTime)
         {
-            return startTime;
+            bool validStartTime = DateTime.TryParse(startTime, out _);
+            return validStartTime;
         }
-        internal static string EndTimeValidation(string endTime)
+        internal static bool EndTimeValidation(string endTime)
         {
-            return endTime;
+            bool validEndTime = DateTime.TryParse(endTime, out _);
+            
+            return validEndTime;
         }
 
     }

@@ -27,16 +27,33 @@ namespace CodingTracker
         {
             Console.WriteLine(@"Please enter a date and time in the following format: MM/DD/YYYY 23:59");
             string startTime = Console.ReadLine();
-            UserValidation.StartTimeValidation(startTime);
+
+            bool validStart = UserValidation.StartTimeValidation(startTime);
+            if (startTime == "0") UserMenu.ShowUserMenu();
+            while (validStart == false)
+            {
+                Console.WriteLine("Invalid start time, please try again - MM/DD/YYYY 23:59");
+                startTime = Console.ReadLine();
+                validStart = UserValidation.StartTimeValidation(startTime);
+            }
+
             return startTime;
         }
 
         internal static string GetEndTime()
         {
             Console.WriteLine(@"Please enter a date and time in the following format: MM/DD/YYYY 23:59");
-            string endtime = Console.ReadLine();
-            UserValidation.EndTimeValidation(endtime);
-            return endtime;
+            string endTime = Console.ReadLine();
+
+            bool validEnd = UserValidation.EndTimeValidation(endTime);
+            if (endTime == "0") UserMenu.ShowUserMenu();
+            while (validEnd == false)
+            {
+                Console.WriteLine("Invalid start time, please try again - MM/DD/YYYY 23:59");
+                endTime = Console.ReadLine();
+                validEnd = UserValidation.StartTimeValidation(endTime);
+            }
+            return endTime;
         }
         internal static string GetDuration(string starttime, string endtime)
         {

@@ -51,12 +51,12 @@ namespace CodingTracker
 
         internal static bool StartTimeValidation(string startTime)
         {
-            bool validStartTime = DateTime.TryParse(startTime, out _);
+            bool validStartTime = DateTime.TryParseExact(startTime,"MM/dd/yyyy HH:mm",new CultureInfo("en-US"),DateTimeStyles.None, out _);
             return validStartTime;
         }
         internal static bool EndTimeValidation(string endTime)
         {
-            bool validEndTime = DateTime.TryParse(endTime, out _);
+            bool validEndTime = DateTime.TryParseExact(endTime, "MM/dd/yyyy HH:mm", new CultureInfo("en-US"), DateTimeStyles.None, out _);
             
             return validEndTime;
         }

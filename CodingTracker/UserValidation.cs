@@ -54,12 +54,13 @@ namespace CodingTracker
             bool validStartTime = DateTime.TryParseExact(startTime,"MM/dd/yyyy HH:mm",new CultureInfo("en-US"),DateTimeStyles.None, out _);
             return validStartTime;
         }
-        internal static bool EndTimeValidation(string endTime)
+        internal static bool EndTimeValidation(string endTime, string startTime)
         {
-            bool validEndTime = DateTime.TryParseExact(endTime, "MM/dd/yyyy HH:mm", new CultureInfo("en-US"), DateTimeStyles.None, out _);
+            bool validEndTime = DateTime.TryParseExact(endTime, "MM/dd/yyyy HH:mm", new CultureInfo("en-US"), DateTimeStyles.None, out _) && Convert.ToDateTime(endTime) > Convert.ToDateTime(startTime);
             
             return validEndTime;
         }
+
 
     }
 }

@@ -14,7 +14,7 @@ namespace CodingTracker
         internal static void AddProcess()
         {
             string startTime = UserInput.GetStartTime();
-            string endTime = UserInput.GetEndTime();
+            string endTime = UserInput.GetEndTime(startTime);
             string duration = UserInput.GetDuration(startTime, endTime);
             CRUDController.AddCodingEntry(startTime, endTime, duration);
             
@@ -27,7 +27,7 @@ namespace CodingTracker
         {
             int id = UserInput.GetCodingEntryId();
             string startTime = UserInput.GetStartTime();
-            string endTime = UserInput.GetEndTime();
+            string endTime = UserInput.GetEndTime(startTime);
             string duration = UserInput.GetDuration(startTime, endTime);
             CRUDController.UpdateCodingEntry(id,startTime,endTime,duration);
         }
